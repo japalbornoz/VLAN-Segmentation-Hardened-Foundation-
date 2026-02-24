@@ -22,34 +22,6 @@ Apply trunk hardening, management plane separation, and Layer 2 edge protections
 (Insert physical diagram image here)
 
 ### Logical Topology
-## Logical Topology
-
-```mermaid
-graph TD
-
-    R1[Router R1<br>ROAS<br>192.168.x.254]
-
-    SW2[SW2<br>Distribution Layer]
-
-    SW1[SW1<br>Access Layer]
-    SW3[SW3<br>Access Layer]
-
-    PC1[PC - VLAN 10<br>192.168.10.x]
-    PC2[PC - VLAN 20<br>192.168.20.x]
-    PC3[PC - VLAN 30<br>192.168.30.x]
-
-    SRV1[Server<br>VLAN 10]
-
-    R1 ---|802.1Q Trunk<br>Native 999| SW2
-
-    SW2 ---|Trunk| SW1
-    SW2 ---|Trunk| SW3
-
-    SW1 --- PC1
-    SW2 --- PC2
-    SW1 --- PC3
-    SW3 --- SRV1   
-(Insert logical diagram image here)
 
 ---
 
