@@ -1,4 +1,4 @@
-# VLAN-Segmentation-Hardened-Foundation-
+# VLAN-Segmentation-Hardened-Foundation
 Router-on-a-Stick
 
 
