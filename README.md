@@ -17,6 +17,7 @@ Apply trunk hardening, management plane separation, and Layer 2 edge protections
 - Dedicated Management VLAN
 
 ### Physical Topology
+   <img src="VLAN-Segmentation-Router-on-a-Stick/Network%20Topology(Physical).png" width="600">
 (Insert physical diagram image here)
 
 ### Logical Topology
