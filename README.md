@@ -22,6 +22,37 @@ Apply trunk hardening, management plane separation, and Layer 2 edge protections
 (Insert physical diagram image here)
 
 ### Logical Topology
+```mermaid
+flowchart TD
+  R1["R1 (ROAS)\nGateways: .254"]
+  SW2["SW2 (Distribution)"]
+  SW1["SW1 (Access)"]
+  SW3["SW3 (Access)"]
+
+  subgraph V10["VLAN 10 - IT-ADMIN (192.168.10.0/24)"]
+    PC10["PC - VLAN10"]
+    SRV1["SRV1 - VLAN10"]
+  end
+
+  subgraph V20["VLAN 20 - ENGINEERING (192.168.20.0/24)"]
+    PC20["PC - VLAN20"]
+  end
+
+  subgraph V30["VLAN 30 - HR (192.168.30.0/24)"]
+    PC30A["PC - VLAN30"]
+    PC30B["PC - VLAN30"]
+  end
+
+  R1 --> SW2
+  SW2 --> SW1
+  SW2 --> SW3
+
+  SW1 --> PC10
+  SW2 --> PC20
+  SW1 --> PC30A
+  SW1 --> PC30B
+  SW3 --> SRV1
+```
 
 ---
 
