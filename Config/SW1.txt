@@ -1,0 +1,258 @@
+SW1#sh run
+Building configuration...
+
+Current configuration : 1837 bytes
+!
+version 12.2
+no service timestamps log datetime msec
+no service timestamps debug datetime msec
+no service password-encryption
+!
+hostname SW1
+!
+!
+!
+!
+!
+!
+spanning-tree mode pvst
+spanning-tree extend system-id
+!
+interface FastEthernet0/1
+ switchport access vlan 10
+ switchport mode access
+ spanning-tree portfast
+ spanning-tree bpduguard enable
+!
+interface FastEthernet0/2
+ switchport access vlan 30
+ switchport mode access
+ spanning-tree portfast
+ spanning-tree bpduguard enable
+!
+interface FastEthernet0/3
+ switchport access vlan 30
+ switchport mode access
+ spanning-tree portfast
+ spanning-tree bpduguard enable
+!
+interface FastEthernet0/4
+ shutdown
+!
+interface FastEthernet0/5
+ shutdown
+!
+interface FastEthernet0/6
+ shutdown
+!
+interface FastEthernet0/7
+ shutdown
+!
+interface FastEthernet0/8
+ shutdown
+!
+interface FastEthernet0/9
+ shutdown
+!
+interface FastEthernet0/10
+ shutdown
+!
+interface FastEthernet0/11
+ shutdown
+!
+interface FastEthernet0/12
+ shutdown
+!
+interface FastEthernet0/13
+ shutdown
+!
+interface FastEthernet0/14
+ shutdown
+!
+interface FastEthernet0/15
+ shutdown
+!
+interface FastEthernet0/16
+ shutdown
+!
+interface FastEthernet0/17
+ shutdown
+!
+interface FastEthernet0/18
+ shutdown
+!
+interface FastEthernet0/19
+ shutdown
+!
+interface FastEthernet0/20
+ shutdown
+!
+interface FastEthernet0/21
+ shutdown
+!
+interface FastEthernet0/22
+ shutdown
+!
+interface FastEthernet0/23
+ shutdown
+!
+interface FastEthernet0/24
+ shutdown
+!
+interface GigabitEthernet0/1
+ switchport trunk native vlan 999
+ switchport trunk allowed vlan 10,20,30,99
+ switchport mode trunk
+ switchport nonegotiate
+!
+interface GigabitEthernet0/2
+ shutdown
+!
+interface Vlan1
+ no ip address
+ shutdown
+!
+interface Vlan99
+ ip address 192.168.99.11 255.255.255.0
+!
+ip default-gateway 192.168.99.254
+!
+!
+!
+!
+line con 0
+!
+line vty 0 4
+ login
+line vty 5 15
+ login
+!
+!
+!
+!
+end
+
+=================================================================
+
+SW1#sh vlan br
+
+VLAN Name                             Status    Ports
+---- -------------------------------- --------- -------------------------------
+1    default                          active    Fa0/4, Fa0/5, Fa0/6, Fa0/7
+                                                Fa0/8, Fa0/9, Fa0/10, Fa0/11
+                                                Fa0/12, Fa0/13, Fa0/14, Fa0/15
+                                                Fa0/16, Fa0/17, Fa0/18, Fa0/19
+                                                Fa0/20, Fa0/21, Fa0/22, Fa0/23
+                                                Fa0/24, Gig0/2
+10   IT_ADMIN                         active    Fa0/1
+20   ENGINEERING                      active    
+30   HR                               active    Fa0/2, Fa0/3
+99   MANAGEMENT                       active    
+1002 fddi-default                     active    
+1003 token-ring-default               active    
+1004 fddinet-default                  active    
+1005 trnet-default                    active    
+
+=================================================================
+
+SW1#sh int trun
+Port        Mode         Encapsulation  Status        Native vlan
+Gig0/1      on           802.1q         trunking      999
+
+Port        Vlans allowed on trunk
+Gig0/1      10,20,30,99
+
+Port        Vlans allowed and active in management domain
+Gig0/1      10,20,30,99
+
+Port        Vlans in spanning tree forwarding state and not pruned
+Gig0/1      10,20,30,99
+
+=================================================================
+
+SW1#sh ip int br
+Interface              IP-Address      OK? Method Status                Protocol 
+FastEthernet0/1        unassigned      YES manual up                    up 
+FastEthernet0/2        unassigned      YES manual up                    up 
+FastEthernet0/3        unassigned      YES manual up                    up 
+FastEthernet0/4        unassigned      YES manual administratively down down 
+FastEthernet0/5        unassigned      YES manual administratively down down 
+FastEthernet0/6        unassigned      YES manual administratively down down 
+FastEthernet0/7        unassigned      YES manual administratively down down 
+FastEthernet0/8        unassigned      YES manual administratively down down 
+FastEthernet0/9        unassigned      YES manual administratively down down 
+FastEthernet0/10       unassigned      YES manual administratively down down 
+FastEthernet0/11       unassigned      YES manual administratively down down 
+FastEthernet0/12       unassigned      YES manual administratively down down 
+FastEthernet0/13       unassigned      YES manual administratively down down 
+FastEthernet0/14       unassigned      YES manual administratively down down 
+FastEthernet0/15       unassigned      YES manual administratively down down 
+FastEthernet0/16       unassigned      YES manual administratively down down 
+FastEthernet0/17       unassigned      YES manual administratively down down 
+FastEthernet0/18       unassigned      YES manual administratively down down 
+FastEthernet0/19       unassigned      YES manual administratively down down 
+FastEthernet0/20       unassigned      YES manual administratively down down 
+FastEthernet0/21       unassigned      YES manual administratively down down 
+FastEthernet0/22       unassigned      YES manual administratively down down 
+FastEthernet0/23       unassigned      YES manual administratively down down 
+FastEthernet0/24       unassigned      YES manual administratively down down 
+GigabitEthernet0/1     unassigned      YES manual up                    up 
+GigabitEthernet0/2     unassigned      YES manual administratively down down 
+Vlan1                  unassigned      YES manual administratively down down 
+Vlan99                 192.168.99.11   YES manual up                    up
+
+=================================================================
+
+SW1# sh int stat
+Port      Name               Status       Vlan       Duplex  Speed Type
+Fa0/1                        connected    10         auto    auto  10/100BaseTX
+Fa0/2                        connected    30         auto    auto  10/100BaseTX
+Fa0/3                        connected    30         auto    auto  10/100BaseTX
+Fa0/4                        disabled 1          auto    auto  10/100BaseTX
+Fa0/5                        disabled 1          auto    auto  10/100BaseTX
+Fa0/6                        disabled 1          auto    auto  10/100BaseTX
+Fa0/7                        disabled 1          auto    auto  10/100BaseTX
+Fa0/8                        disabled 1          auto    auto  10/100BaseTX
+Fa0/9                        disabled 1          auto    auto  10/100BaseTX
+Fa0/10                       disabled 1          auto    auto  10/100BaseTX
+Fa0/11                       disabled 1          auto    auto  10/100BaseTX
+Fa0/12                       disabled 1          auto    auto  10/100BaseTX
+Fa0/13                       disabled 1          auto    auto  10/100BaseTX
+Fa0/14                       disabled 1          auto    auto  10/100BaseTX
+Fa0/15                       disabled 1          auto    auto  10/100BaseTX
+Fa0/16                       disabled 1          auto    auto  10/100BaseTX
+Fa0/17                       disabled 1          auto    auto  10/100BaseTX
+Fa0/18                       disabled 1          auto    auto  10/100BaseTX
+Fa0/19                       disabled 1          auto    auto  10/100BaseTX
+Fa0/20                       disabled 1          auto    auto  10/100BaseTX
+Fa0/21                       disabled 1          auto    auto  10/100BaseTX
+Fa0/22                       disabled 1          auto    auto  10/100BaseTX
+Fa0/23                       disabled 1          auto    auto  10/100BaseTX
+Fa0/24                       disabled 1          auto    auto  10/100BaseTX
+Gig0/1                       connected    trunk      auto    auto  10/100BaseTX
+Gig0/2                       disabled 1          auto    auto  10/100BaseTX
+
+=================================================================
+
+SW1#sh span sum
+Switch is in pvst mode
+Root bridge for: IT_ADMIN ENGINEERING HR MANAGEMENT
+Extended system ID           is enabled
+Portfast Default             is disabled
+PortFast BPDU Guard Default  is disabled
+Portfast BPDU Filter Default is disabled
+Loopguard Default            is disabled
+EtherChannel misconfig guard is disabled
+UplinkFast                   is disabled
+BackboneFast                 is disabled
+Configured Pathcost method used is short
+
+Name                   Blocking Listening Learning Forwarding STP Active
+---------------------- -------- --------- -------- ---------- ----------
+VLAN0010                     0         0        0          2          2
+VLAN0020                     0         0        0          1          1
+VLAN0030                     0         0        0          3          3
+VLAN0099                     0         0        0          1          1
+
+---------------------- -------- --------- -------- ---------- ----------
+5 vlans                      0         0        0          7          7
