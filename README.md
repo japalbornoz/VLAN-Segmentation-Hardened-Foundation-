@@ -18,8 +18,17 @@ Apply trunk hardening, management plane separation, and Layer 2 edge protections
 
 ### Physical Topology
    <img src="Network%20Topology%20(Physical).png" width="800">
-   
-(Insert physical diagram image here)
+
+### Architecture Rationale
+
+A traditional three-tier campus model was simulated:
+
+- Access Layer: End device connectivity and edge protection
+- Distribution Layer: Aggregation and VLAN trunking
+- Routing Layer: Inter-VLAN routing via ROAS
+
+This separation reflects enterprise campus network design principles.
+
 
 ### Logical Topology
 ```mermaid
@@ -158,41 +167,42 @@ ip default-gateway 192.168.99.254
   - Successful ping to respective default gateways
   - Successful ping to management gateway (192.168.99.254)
 
-(Screenshots located in /validation directory)
+Validation outputs and ping results are documented in the `/validation` directory.
 
 ---
 
 ## 6. Troubleshooting Scenarios
-   Scenario 1 – Host Cannot Reach Gateway                                     
-   Cause: Incorrect access VLAN assignment                                      
-   Fix: Reassign correct VLAN using `switchport access vlan X`                              
+   ### Scenario 1 – Host Cannot Reach Gateway                                     
+   **Cause:** Incorrect access VLAN assignment                                      
+   **Resolution:** Reassign correct VLAN using `switchport access vlan X`                              
  
-   Scenario 2 – Inter-VLAN Routing Failure                                                      
-   Cause: Missing or incorrect `encapsulation dot1Q` on router subinterface                                                 
-   Fix: Configure correct VLAN ID on subinterface                                        
+   ### Scenario 2 – Inter-VLAN Routing Failure                                                      
+   **Cause:** Missing or incorrect `encapsulation dot1Q` on router subinterface                                                 
+   **Resolution:** Configure correct VLAN ID on subinterface                                        
 
-   Scenario 3 – Native VLAN Mismatch                                   
-   Cause: Native VLAN not aligned on trunk links                                 
-   Fix: Set `switchport trunk native vlan 999` consistently                         
+   ### Scenario 3 – Native VLAN Mismatch                                   
+   **Cause:** Native VLAN not aligned on trunk links                                 
+   **Resolution:** Set `switchport trunk native vlan 999` consistently                         
 
-   Scenario 4 – Trunk Not Passing VLAN                            
-   Cause: VLAN not included in allowed list                            
-   Fix: Update `switchport trunk allowed vlan` configuration                            
+   ### Scenario 4 – Trunk Not Passing VLAN                            
+   **Cause:** VLAN not included in allowed list                            
+   **Resolution:** Update `switchport trunk allowed vlan` configuration                            
 
-   Scenario 5 – Management VLAN Unreachable                              
-   Cause: VLAN 99 not configured or not active on trunk                              
-   Fix: Create VLAN 99 and ensure it is allowed on trunks                                  
+   ### Scenario 5 – Management VLAN Unreachable                              
+   **Cause:** VLAN 99 not configured or not active on trunk                              
+   **Resolution:** Create VLAN 99 and ensure it is allowed on trunks                                  
 
 ---
 
 ## 7. Lessons Learned
+  - Router-on-a-Stick is suitable for small environments but does not scale compared to multilayer switching.
   - Consistent VLAN configuration across all switches is critical.
   - Native VLAN should never carry user traffic.
   - Management plane must be isolated from data plane.
   - Trunk hardening prevents unintended VLAN propagation.
   - STP should never be globally disabled in production environments.
   - Structured validation commands are essential for troubleshooting.
-
+    
 ---
 
 ## 8. Skills Demonstrated
@@ -203,6 +213,8 @@ ip default-gateway 192.168.99.254
   - Layer 2 hardening (PortFast, BPDU Guard)
   - Management VLAN implementation
   - Network validation and structured troubleshooting
+
+---
 
 ## 9. Tools Used
   - Cisco Packet Tracer
