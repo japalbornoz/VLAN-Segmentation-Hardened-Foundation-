@@ -24,7 +24,9 @@ Apply trunk hardening, management plane separation, and Layer 2 edge protections
 ### Logical Topology
 ```mermaid
 flowchart TD
-  R1["R1 (ROAS)\nGateways: .254"]
+  R1["R1 - Router"]
+  R1["(ROAS)\nGateway .254"]
+
   SW2["SW2 (Distribution)"]
   SW1["SW1 (Access)"]
   SW3["SW3 (Access)"]
