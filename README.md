@@ -46,10 +46,10 @@ flowchart TD
   R1 --> SW2
   SW2 --> SW1
   SW2 --> SW3
+  SW2 --> PC30A
 
   SW1 --> PC10
   SW2 --> PC20
-  SW1 --> PC30A
   SW1 --> PC30B
   SW3 --> SRV1
 ```
