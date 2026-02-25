@@ -1,0 +1,75 @@
+IT ADMIN -> ENGINEERING 
+PC1 192.168.10.1 -> PC4 192.168.20.4 : Success
+
+C:\>ping 192.168.20.4
+
+Pinging 192.168.20.4 with 32 bytes of data:
+
+Request timed out.
+Reply from 192.168.20.4: bytes=32 time<1ms TTL=127
+Reply from 192.168.20.4: bytes=32 time<1ms TTL=127
+Reply from 192.168.20.4: bytes=32 time<1ms TTL=127
+
+Ping statistics for 192.168.20.4:
+    Packets: Sent = 4, Received = 3, Lost = 1 (25% loss),
+Approximate round trip times in milli-seconds:
+    Minimum = 0ms, Maximum = 0ms, Average = 0ms
+
+=================================================================
+
+ENGINEERING -> HR
+PC4 192.168.20.4 -> PC5 192.168.30.5 : Success
+
+C:\>ping 192.168.30.5
+
+Pinging 192.168.30.5 with 32 bytes of data:
+
+Request timed out.
+Reply from 192.168.30.5: bytes=32 time<1ms TTL=127
+Reply from 192.168.30.5: bytes=32 time<1ms TTL=127
+Reply from 192.168.30.5: bytes=32 time<1ms TTL=127
+
+Ping statistics for 192.168.30.5:
+    Packets: Sent = 4, Received = 3, Lost = 1 (25% loss),
+Approximate round trip times in milli-seconds:
+    Minimum = 0ms, Maximum = 0ms, Average = 0ms
+
+=================================================================
+
+HR -> IT ADMIN
+PC3 192.168.30.3 -> PC1 192.168.10.1 : Success
+
+C:\>ping 192.168.10.1
+
+Pinging 192.168.10.1 with 32 bytes of data:
+
+Reply from 192.168.10.1: bytes=32 time<1ms TTL=127
+Reply from 192.168.10.1: bytes=32 time<1ms TTL=127
+Reply from 192.168.10.1: bytes=32 time<1ms TTL=127
+Reply from 192.168.10.1: bytes=32 time<1ms TTL=127
+
+Ping statistics for 192.168.10.1:
+    Packets: Sent = 4, Received = 4, Lost = 0 (0% loss),
+Approximate round trip times in milli-seconds:
+    Minimum = 0ms, Maximum = 0ms, Average = 0ms
+
+=================================================================
+
+IT ADMIN -> MANAGEMENT
+PC1 192.168.10.1 -> 192.168.99.254 : Success
+
+C:\>ping 192.168.99.254
+
+Pinging 192.168.99.254 with 32 bytes of data:
+
+Reply from 192.168.99.254: bytes=32 time<1ms TTL=255
+Reply from 192.168.99.254: bytes=32 time<1ms TTL=255
+Reply from 192.168.99.254: bytes=32 time<1ms TTL=255
+Reply from 192.168.99.254: bytes=32 time<1ms TTL=255
+
+Ping statistics for 192.168.99.254:
+    Packets: Sent = 4, Received = 4, Lost = 0 (0% loss),
+Approximate round trip times in milli-seconds:
+    Minimum = 0ms, Maximum = 0ms, Average = 0ms
+
+
