@@ -1,4 +1,4 @@
-# CCNA Project 01 – Router-on-a-Stick VLAN Segmentation (Hardened Design)
+# CCNA Project 01 – VLAN-Segmentation-Router-on-a-Stick (Hardened Design)
 
 ## 1. Project Objective
 
