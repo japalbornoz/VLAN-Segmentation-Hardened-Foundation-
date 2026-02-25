@@ -23,38 +23,47 @@ Apply trunk hardening, management plane separation, and Layer 2 edge protections
 
 ### Logical Topology
 ```mermaid
-flowchart TD
-  R1["R1 - Router"]
-  R1["(ROAS)\nGateway .254"]
+flowchart TB
 
-  SW2["SW2 (Distribution)"]
-  SW1["SW1 (Access)"]
-  SW3["SW3 (Access)"]
+  R1["R1 - Router (ROAS)\nDefault Gateways: .254"]
 
-  subgraph V10["VLAN 10 - IT-ADMIN (192.168.10.0/24)"]
-    PC10["PC - VLAN10"]
-    SRV1["SRV1 - VLAN10"]
-  end
-
-  subgraph V20["VLAN 20 - ENGINEERING (192.168.20.0/24)"]
-    PC20["PC - VLAN20"]
-  end
-
-  subgraph V30["VLAN 30 - HR (192.168.30.0/24)"]
-    PC30A["PC - VLAN30"]
-    PC30B["PC - VLAN30"]
-  end
+  SW2["SW2 - Distribution"]
+  SW1["SW1 - Access"]
+  SW3["SW3 - Access"]
 
   R1 --> SW2
   SW2 --> SW1
   SW2 --> SW3
-  SW2 --> PC30A
 
-  SW1 --> PC10
-  SW2 --> PC20
-  SW1 --> PC30B
+  subgraph VLAN10["VLAN 10 - IT ADMIN"]
+    direction TB
+    V10SUB["(192.168.10.0/24)"]
+    PC10["PC"]
+    SRV1["Server"]
+  end
+
+  subgraph VLAN20["VLAN 20 - ENGINEERING"]
+    direction TB
+    V20SUB["(192.168.20.0/24)"]
+    PC20["PC"]
+  end
+
+  subgraph VLAN30["VLAN 30 - HR"]
+    direction TB
+    V30SUB["(192.168.30.0/24)"]
+    PC30["PC"]
+  end
+
+  SW1 --> VLAN10
+  SW2 --> VLAN20
+  SW1 --> VLAN30
   SW3 --> SRV1
 ```
+**Design Notes:**
+- Inter-VLAN routing via Router-on-a-Stick (802.1Q)
+- Trunks carry VLANs 10,20,30,99 (native VLAN 999)
+- SW2 acts as distribution layer
+- VLAN 99 used for management plane separation
 
 ---
 
