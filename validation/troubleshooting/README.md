@@ -92,7 +92,7 @@ VLAN missing from trunk allowed list.
 
 
 ### Resolution
-    switchport trunk allowed vlan 10,20,30,99
+    switchport trunk allowed vlan 10,20,30,99,999
 
 Explicit VLAN allow-list configured.
 
@@ -136,8 +136,10 @@ Rogue switch connected to PortFast-enabled interface.
 ### Resolution
 - Remove unauthorized device
 - Re-enable interface:
-          `shutdown`
-          `no shutdown`
+```plaintext
+shutdown
+no shutdown
+```
 
 ---
 
