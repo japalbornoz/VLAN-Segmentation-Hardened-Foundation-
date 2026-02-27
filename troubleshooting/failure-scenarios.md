@@ -1,4 +1,4 @@
-# Troubleshooting & Failure Scenarios
+# Common Troubleshooting and Failure Scenarios
 
 This section documents common failure scenarios encountered in VLAN-based campus environments and the structured troubleshooting approach used to resolve them.
 
@@ -47,6 +47,8 @@ Missing or incorrect 802.1Q encapsulation on router subinterface.
 
 ### Validation Commands
     show ip interface brief
+    show vlan brief
+    shhow interfaces trunk
     show running-config interface g0/0.X
 
 ### Resolution
