@@ -2,8 +2,10 @@
 
 ## 1. Project Objective
 
-Design and implement a segmented enterprise LAN using VLANs with inter-VLAN routing via Router-on-a-Stick (ROAS).  
-Apply trunk hardening, management plane separation, and Layer 2 edge protections to simulate real-world campus network practices.
+Design and implement a segmented enterprise LAN using VLANs and inter-VLAN routing through **Router-on-a-Stick (ROAS)**.
+
+The project focused on building core campus access-layer fundamentals, including **VLAN segmentation, trunk configuration, management plane separation, and Layer 2 edge protections**, to simulate practical enterprise network design and hardening concepts.
+
 
 ---
 
