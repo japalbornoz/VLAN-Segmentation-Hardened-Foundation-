@@ -54,3 +54,4 @@ show ip interface brief
 show ip route
 ping <default-gateway>
 ping <remote-host>
+```
