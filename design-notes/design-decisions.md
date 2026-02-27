@@ -21,10 +21,10 @@ Inter-VLAN routing was implemented using Router-on-a-Stick with 802.1Q subinterf
 
 ---
 
-## 2. Three-Tier Campus Model Simulation
+## 2. Campus Design Function Separation
 
 ### Decision
-Topology modeled after a traditional three-tier campus design:
+The topology was organized to separate routing, distribution, and access functions:
 
 - Access Layer (SW1, SW3)
 - Distribution Layer (SW2)
