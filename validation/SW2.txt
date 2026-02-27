@@ -1,4 +1,4 @@
-SW2#  sh vlan br
+SW2#  show vlan brief
 
 VLAN Name                             Status    Ports
 ---- -------------------------------- --------- -------------------------------
@@ -21,30 +21,30 @@ VLAN Name                             Status    Ports
 
 =================================================================
 
-SW2#sh int trunk
+SW2#show interface trunk
 Port        Mode         Encapsulation  Status        Native vlan
 Fa0/1       on           802.1q         trunking      999
 Gig0/1      on           802.1q         trunking      999
 Gig0/2      on           802.1q         trunking      999
 
 Port        Vlans allowed on trunk
-Fa0/1       10,20,30,99
-Gig0/1      10,20,30,99
+Fa0/1       10,20,30,99,999
+Gig0/1      10,20,30,99,999
 Gig0/2      10,20,30,99
 
 Port        Vlans allowed and active in management domain
-Fa0/1       10,20,30,99
-Gig0/1      10,20,30,99
+Fa0/1       10,20,30,99,999
+Gig0/1      10,20,30,99,999
 Gig0/2      10,20,30,99
 
 Port        Vlans in spanning tree forwarding state and not pruned
-Fa0/1       10,20,30,99
-Gig0/1      10,20,30,99
+Fa0/1       10,20,30,99,999
+Gig0/1      10,20,30,99,999
 Gig0/2      10,20,30,99
 
 =================================================================
 
-SW2#sh ip int br
+SW2#show ip interface brief
 Interface              IP-Address      OK? Method Status                Protocol 
 FastEthernet0/1        unassigned      YES manual up                    up 
 FastEthernet0/2        unassigned      YES manual up                    up 
@@ -131,3 +131,4 @@ VLAN0999                     0         0        0          3          3
 
 ---------------------- -------- --------- -------- ---------- ----------
 6 vlans                      0         0        0         17         17
+
