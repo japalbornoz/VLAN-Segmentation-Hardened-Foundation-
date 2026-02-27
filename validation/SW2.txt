@@ -21,7 +21,7 @@ VLAN Name                             Status    Ports
 
 =================================================================
 
-SW2#show interface trunk
+SW2#show interfaces trunk
 Port        Mode         Encapsulation  Status        Native vlan
 Fa0/1       on           802.1q         trunking      999
 Gig0/1      on           802.1q         trunking      999
@@ -44,7 +44,7 @@ Gig0/2      10,20,30,99
 
 =================================================================
 
-SW2#show ip interface brief
+SW2#show ip interfaces brief
 Interface              IP-Address      OK? Method Status                Protocol 
 FastEthernet0/1        unassigned      YES manual up                    up 
 FastEthernet0/2        unassigned      YES manual up                    up 
@@ -131,4 +131,5 @@ VLAN0999                     0         0        0          3          3
 
 ---------------------- -------- --------- -------- ---------- ----------
 6 vlans                      0         0        0         17         17
+
 
