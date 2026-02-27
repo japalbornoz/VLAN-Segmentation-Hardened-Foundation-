@@ -55,8 +55,3 @@ show ip route
 ping <default-gateway>
 ping <remote-host>
 ```
-
-## Result
-Baseline validation passed.
-
-The Router-on-a-Stick topology was confirmed to be operating correctly with VLAN segmentation, inter-VLAN routing, trunking, and management-plane separation.
