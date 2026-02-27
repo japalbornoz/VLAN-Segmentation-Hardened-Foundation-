@@ -19,12 +19,12 @@ VLAN Name                             Status    Ports
 
 =================================================================
 
-SW1#sh int trun
+SW1#sh int tr
 Port        Mode         Encapsulation  Status        Native vlan
 Gig0/1      on           802.1q         trunking      999
 
 Port        Vlans allowed on trunk
-Gig0/1      10,20,30,99
+Gig0/1      10,20,30,99,999
 
 Port        Vlans allowed and active in management domain
 Gig0/1      10,20,30,99
@@ -119,4 +119,5 @@ VLAN0030                     0         0        0          3          3
 VLAN0099                     0         0        0          1          1
 
 ---------------------- -------- --------- -------- ---------- ----------
+
 5 vlans                      0         0        0          7          7
