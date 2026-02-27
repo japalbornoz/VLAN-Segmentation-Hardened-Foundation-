@@ -169,7 +169,7 @@ ip default-gateway 192.168.99.254
   - Successful ping to respective default gateways
   - Successful ping to management gateway (192.168.99.254)
 
-Validation outputs and ping results are documented in the `/validation` directory.
+Validation outputs and ping results are documented in the [`validation/`](validation/) directory.
 
 ---
 
