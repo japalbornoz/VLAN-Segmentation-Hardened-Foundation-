@@ -23,7 +23,7 @@ The project focused on building core campus access-layer fundamentals, including
 
 ### Architecture Rationale
 
-A traditional three-tier campus model was simulated:
+A simplified campus design with routing, distribution, and access functions was simulated:
 
 - Access Layer: End device connectivity and edge protection
 - Distribution Layer: Aggregation and VLAN trunking
@@ -82,7 +82,7 @@ flowchart TB
 
 | VLAN | Name | Subnet | Default Gateway |
 |------|------|--------|-----------------|
-| 10 | IT-ADMIN | 192.168.10.0/24 | 192.168.10.254 |
+| 10 | IT_ADMIN | 192.168.10.0/24 | 192.168.10.254 |
 | 20 | ENGINEERING | 192.168.20.0/24 | 192.168.20.254 |
 | 30 | HR | 192.168.30.0/24 | 192.168.30.254 |
 | 99 | MANAGEMENT | 192.168.99.0/24 | 192.168.99.254 |
@@ -173,7 +173,7 @@ Validation outputs and ping results are documented in the [`validation/`](valida
 
 ---
 
-## 6. Troubleshooting Scenarios
+## 6. Common Troubleshooting Scenarios
    ### Scenario 1 – Host Cannot Reach Gateway                                     
    **Cause:** Incorrect access VLAN assignment                                      
    **Resolution:** Reassign correct VLAN using `switchport access vlan X`                              
@@ -204,6 +204,7 @@ Validation outputs and ping results are documented in the [`validation/`](valida
   - Trunk hardening prevents unintended VLAN propagation.
   - STP should never be globally disabled in production environments.
   - Structured validation commands are essential for troubleshooting.
+  - This project served as the foundation for Project 02, where inter-VLAN routing was moved from Router-on-a-Stick to multilayer switching with gateway and path redundancy.
     
 ---
 
